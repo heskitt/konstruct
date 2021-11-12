@@ -1,0 +1,144 @@
+@use 'sass:math';
+
+.header {
+	position: fixed;
+	z-index: 2;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	margin: 0 0 -48px;
+	background: $altColor;
+	border-top: 1px solid #e6e6e6;
+	transition: all .3s ease 0s;
+	@media (min-width: $md1+px) {
+		margin: 0 0 -64px;
+	}
+	&._scroll {
+		margin: 0;
+	}
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 48px;
+		@media (min-width: $md1+px) {
+			min-height: 64px;
+		}
+	}
+	// .header__logo
+	&__logo {
+		position: relative;
+		z-index: 5;
+		height: 16px;
+	}
+	// .header__menu
+	&__menu {
+	}
+}
+
+.menu {
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		@media (max-width: $md4+px) {
+			position: fixed;
+			bottom: -100%;
+			left: 0;
+			overflow: auto;
+			width: 100%;
+			height: 100%;
+			padding: 48px 16px 72px;
+			background: rgba($altColor, .95);
+			transition: all .3s ease 0s;
+			&._active {
+				bottom: 0;
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		text-align: center;
+		@media (min-width: $md4+px) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+			align-items: center;
+		}
+	}
+	// .menu__item
+	&__item {
+		+ .menu__item {
+			margin-top: 32px;
+			@media (min-width: $md4+px) {
+				margin-top: 0;
+				@include adaptiv-value('margin-left', 40, 16, 1);
+			}
+		}
+	}
+	// .menu__link
+	&__link {
+		display: inline-block;
+		padding: 4px 0;
+		font-size: 20px;
+		font-weight: 600;
+		letter-spacing: 1.09;
+		transition: color .3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $accentColor;
+			}
+		}
+		@media (min-width: $md4+px) {
+			font-size: 12px;
+		}
+		&._active {
+			color: $accentColor;
+		}
+	}
+}
+//=============================================================================================================================
+//Burger
+.icon-menu {
+	display: none;
+	@media (max-width: $md4+px) {
+		position: relative;
+		z-index: 5;
+		right: -12px;
+		display: block;
+		width: 48px;
+		height: 48px;
+		cursor: pointer;
+		span {
+			position: absolute;
+			top: calc(50% - 1px);
+			right: 12px;
+			width: calc(100% - 24px);
+			height: 2px;
+			background-color: #171819;
+			transition: all .3s ease 0s;
+			&:first-child {
+				top: 16px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 16px;
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:first-child {
+					top: calc(50% - 1px);
+					transform: rotate(-45deg);
+				}
+				&:last-child {
+					bottom: calc(50% - 1px);
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+}

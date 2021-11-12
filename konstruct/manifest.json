@@ -1,0 +1,13 @@
+{
+	"name": "Konstruct",
+	"short_name": "Konctruct",
+	"icons": [
+		{
+			"src": "img/favicons/google-touch-icon.png",
+			"sizes": "512x512"
+		}
+	],
+	"theme_color": "#333333",
+	"background_color": "#333333",
+	"display": "fullscreen"
+}

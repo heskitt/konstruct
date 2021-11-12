@@ -1,0 +1,74 @@
+//<FORM ()>====================================================================================================================
+.form {
+	@media (min-width: $md4+px) {
+		display: flex;
+		align-items: center;
+	}
+	&__input {
+		min-width: 250px;
+		min-height: 40px;
+		@media (max-width: $md4+px) {
+			margin: 0 0 16px;
+		}
+	}
+	&__button {
+	}
+	&__error{
+	}
+}
+//</FORM>======================================================================================================================
+
+//<BUTTONS (a.btn+tab)>========================================================================================================
+.button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 150px;
+	min-height: 40px;
+	padding: 9px 16px;
+	color: $altColor;
+	font-size: 13px;
+	line-height: calc(18 / 13);
+	font-weight: 700;
+	letter-spacing: .5px;
+	text-transform: uppercase;
+	background: $accentColor;
+	border: 2px solid $accentColor;
+	transition: all .3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			color: $accentColor;
+			background: $altColor;
+		}
+	}
+	&._fw {
+		width: 100%;
+	}
+}
+//</BUTTONS>===================================================================================================================
+
+//<INPUT (inp+tab)>============================================================================================================
+input[type='email'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	&:focus {
+		outline: none;
+	}
+}
+
+.input {
+	display: block;
+	width: 100%;
+	padding: 0 16px;
+	color: $mainColor;
+	font-size: 14px;
+	border-radius: 0 !important;
+	&._focus {
+		color: #171819;
+	}
+	&._error {
+		border: 2px solid #ff0000;
+	}
+}
+//</INPUT>=====================================================================================================================
